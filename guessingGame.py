@@ -30,7 +30,7 @@ def binarySearch(list):
                 low = mid+1
             elif guess == "n" or guess == "N":
                 if list[mid] == 1:
-                    print("Your selected number is not in range 1-"+str(r))
+                    print("Your selected number is not in range ")
                     break;
                 else:
                     counter +=1
