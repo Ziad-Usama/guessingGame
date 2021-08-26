@@ -1,4 +1,4 @@
-#usr/bin/python 
+#usr/bin/python
 import math
 import time
 def playGame():
@@ -13,28 +13,31 @@ def playGame():
         l.append(i)
     binarySearch(l)
 def binarySearch(list):
-    low = 0
+    low =0
     high = len(list)-1
-    counter = 1
-    while(low <= high):
+    counter = 0
+    while(low <=high):
         mid = ((low+high)/2)
-        guess = str(raw_input("Is the number "+str(list[mid])+" [n/y]: "))
-        if guess ==  "y" or guess == "Y":
+        guess = str(raw_input("Is the number ([G]reater/ [S]maller/ [E]qual) to "+str(list[mid])+": "))
+        if guess == "G" or guess == "g":
+            if(list[mid] == r):
+                print("Your number isn't in range")
+            else:
+                counter +=1
+                low = mid + 1
+        elif guess == "S" or guess == "s":
+            if list[mid] == 1:
+                print("Your selected number is not in range ")
+                break;
+            else:
+                counter += 1
+                high = mid - 1
+        elif guess == "E" or guess == "e":
             counter += 1
-            print("Found your number in "+str(counter)+" guesses")
+            print("Found your number in "+str(counter)+" attempts")
             break;
-        elif guess == "n" or guess == "N":
-            guess = str(raw_input("Is the number greater than "+str(list[mid])+"[n/y]"))
-            if guess == "y" or guess == "Y":
-                counter+=1
-                low = mid+1
-            elif guess == "n" or guess == "N":
-                if list[mid] == 1:
-                    print("Your selected number is not in range ")
-                    break;
-                else:
-                    counter +=1
-                    high = mid -1
+        else:
+            print("please enter a valid choice!!!")
 def MainMenu():
     print"""
     [1]Play the Game
